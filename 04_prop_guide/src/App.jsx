@@ -1,10 +1,9 @@
-import "./App.css"
-import ComplexProps from "./components/ComplexProps"
-import BasicProps from "./components/BasicProps"
-import ChildrenProps from "./components/ChildrenProps"
-import RefProps from "./components/RefProps"
-import ThemeToggler from "./components/ThemeToggler"
-
+import "./App.css";
+import ComplexProps from "./components/ComplexProps";
+import BasicProps from "./components/BasicProps";
+import ChildrenProps from "./components/ChildrenProps";
+import RefProps from "./components/RefProps";
+import ThemeToggler, { ThemeProvider } from "./components/ThemeToggler";
 
 function Navigation() {
   const isDark = true;
@@ -17,8 +16,8 @@ function Navigation() {
     { id: "theme", label: "theme Props", icon: "🎨" },
   ];
 
-  return(
-       <nav
+  return (
+    <nav
       className={`sticky top-0 z-50 shadow-md transition-colors ${
         isDark ? "bg-gray-800" : "bg-white"
       }`}
@@ -40,54 +39,52 @@ function Navigation() {
         </div>
       </div>
     </nav>
-  )
-
+  );
 }
 
-function AppContent(){
-    const isDark = true;
-  return <div className="min-h-screen text-white">
+function AppContent() {
+  const isDark = true;
+  return (
+    <div className="min-h-screen text-white">
       <Navigation />
-      <div className="container mx-auto p-4 bg-blue-500 h-20  text-white"><hader><h1>Explaining React Props</h1>
-      <p>A comprehensive guide to understand react</p></hader>
-      <div className="space-y-8">
-
+      <div className="container mx-auto p-4 bg-blue-500 h-20  text-white">
+        <header>
+          <h1>Explaining React Props</h1>
+          <p>A comprehensive guide to understand react</p>
+        </header>
+        <div className="space-y-8">
           <div id="basic" className="scroll-mt-200">
-              <BasicProps />
+            <BasicProps />
           </div>
           <div id="RefProps" className="scroll-mt-200">
-              <RefProps />
+            <RefProps />
           </div>
           <div id="ChildrenProps" className="scroll-mt-200">
-              <ChildrenProps />
+            <ChildrenProps />
           </div>
           <div id="ComplexProps" className="scroll-mt-200">
-              <ComplexProps />
+            <ComplexProps />
           </div>
           <div id="ThemeToggler" className="scroll-mt-200">
+            <ThemeProvider>
               <ThemeToggler />
+            </ThemeProvider>
           </div>
           <footer
-              className={`mt-12 text-center pb-8 transition-colors ${
-                  isDark ? "text-gray-400" : "text-gray-600"
-              }`}
+            className={`mt-12 text-center pb-8 transition-colors ${
+              isDark ? "text-gray-400" : "text-gray-600"
+            }`}
           >
-              <p className="text-sm">
-                  Made with ❤️ using Bun, Vite, React, and Tailwind CSS
-              </p>
+            <p className="text-sm">
+              Made with ❤️ using Bun, Vite, React, and Tailwind CSS
+            </p>
           </footer>
-
+        </div>
       </div>
-      </div>
-  </div>
+    </div>
+  );
 }
 
-
-export default function App(){
-    return(
-     
-        <AppContent />
-
-     
-    )
+export default function App() {
+  return <AppContent />;
 }
