@@ -1,5 +1,5 @@
 import {FaShoppingCart} from "react-icons/fa"
-
+import "../App.css"
 function ProductCard({product,onAddToCart}) {
   return (
     <div className="product-cart">
