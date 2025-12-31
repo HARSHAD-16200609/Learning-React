@@ -12,7 +12,7 @@ function App() {
           <h1>Shopping Cart</h1>
         </header>
         <main className="products">
-          <section>
+          <section className="product">
             {products.map((product) => (
               <ProductCard
                 key={product.id}
