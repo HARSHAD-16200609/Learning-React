@@ -1,0 +1,68 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+ 
+}
+
+.main{
+  display: flex;
+  gap: 1em;
+}
+.container{
+width:750px;
+height: 450px;
+border: 2px solid white;
+border-radius: 10px;
+}
+.header{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap:6px;
+  width: 100%;
+  background-color: whitesmoke;
+  height: 20%;
+border-radius: 10px;
+
+}
+.header>h2{
+color: #5cd3eb;
+}
+img{
+  margin-left:12px
+}
+
+img{
+  height: 30px;
+}
+.content>h2{
+  margin:0px;
+  margin-top: 12px;
+  margin-left: 25px;
+}
+.content{
+   background-color: #15171b;
+  height: 77%;
+  width: 96%;
+  background-image: url("./https://img.freepik.com/premium-vector/neutral-watercolor-background_52683-126038.jpg");
+  background-repeat:no-repeat;
+  background-size: cover;
+  padding-top:12px;
+  padding-left:12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+border-radius: 10px;
+
+}
+
+ul{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+li::marker{
+  color: #5cd3eb;
+}
