@@ -5,6 +5,8 @@ import { useState } from "react";
 function MainCont() {
   const [ingredients, setIngredients] = useState([]);
   const [inputValue, setInputValue] = useState("");
+  const [fetchedResponse,setResponse] =useState("");
+
 
   const addIngredient = () => {
     if (!inputValue.trim()) return;
@@ -12,6 +14,16 @@ function MainCont() {
     setIngredients(prev => [...prev, inputValue]);
     setInputValue("");
   };
+  const getIngredients =() =>{
+    return ingredients
+  }
+
+  const fetchApiResponse= ()=>{
+    fetch("https://pokeapi.co/api/v2/pokemon/ditto")
+    .then((response)=>response.json())
+    .then((data)=>setResponse(data))
+  
+  }
 
   return (
     <div className="main-cont">
@@ -43,7 +55,8 @@ function MainCont() {
           <h3>Ready for a recipe?</h3>
           <span>
             <h4>Generate a recipe from your list of ingredients.</h4>{" "}
-            <button>Get a Recipe</button>
+            <button
+            onClick={fetchApiResponse}>Get a Recipe</button>
           </span>
         </div>
       </div>
