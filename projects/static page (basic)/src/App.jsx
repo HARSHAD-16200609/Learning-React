@@ -34,7 +34,7 @@ const reactFacts = [
 
   return (
     <>  <div className="main">
-      <Productinfo productImage={nextjslogo} productName="Nextjs" facts={viteFacts} />
+      <Productinfo productImage={nextjslogo} productName="NextJs" facts={viteFacts} />
     <Productinfo productImage={reactlogo} productName="React" facts={reactFacts} />
   <Productinfo productImage={viteLogo} productName="Vite" facts={NextjsFacts} />
     </div>
