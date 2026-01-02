@@ -113,3 +113,11 @@ align-items: flex-start;
  }
 
 }
+
+.response{
+
+  width: 80%;
+  margin: auto;
+  padding: 1em;
+  margin-bottom: 2em;
+}

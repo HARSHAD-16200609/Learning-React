@@ -59,6 +59,40 @@ function MainCont() {
             onClick={fetchApiResponse}>Get a Recipe</button>
           </span>
         </div>
+        <div className="response">
+          Instructions
+
+# Spicy Garlic Butter Shrimp 🍤<br></br>
+
+**Servings:** 2  <br></br>
+**Prep Time:** 5 min  <br></br>
+**Cook Time:** 10 min  <br></br>
+
+---
+
+## Ingredients<br></br>
+- 250g shrimp, peeled and deveined  <br></br>
+- 3 tbsp butter  <br></br>
+- 4 garlic cloves, minced  <br></br>
+- 1 tsp chili flakes (adjust to taste)  <br></br>
+- 1 tbsp lemon juice  <br></br>
+- Salt & pepper, to taste  <br></br>
+- Fresh parsley, chopped (for garnish)  <br></br>
+
+---
+
+## Instructions<br></br>
+1. **Prep shrimp:** Pat the shrimp dry and season with salt and pepper.<br></br>  
+2. **Cook garlic:** Heat butter in a pan over medium heat. Add garlic and chili flakes, sauté for 1 minute.  <br></br>
+3. **Cook shrimp:** Add shrimp to the pan and cook 2-3 minutes per side until pink and opaque.  <br></br>
+4. **Add lemon:** Drizzle lemon juice over the shrimp and toss to coat. <br></br> 
+5. **Serve:** Garnish with parsley and serve hot. Perfect with rice, pasta, or bread.  <br></br>
+
+---
+
+Enjoy your meal! 😋<br></br>
+
+        </div>
       </div>
     </div>
   );
