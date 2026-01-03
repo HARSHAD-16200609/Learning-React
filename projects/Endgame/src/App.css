@@ -1,0 +1,142 @@
+@font-face {
+  font-family: baloo;
+  src: url("./assets/BalooBhai2-VariableFont_wght.ttf");
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  font-family: baloo ,sans-serif;
+}
+
+.main-cont{
+
+  height: 80vh;
+  width: 40vw;
+  display: flex;
+  flex-direction:column;
+  justify-content: flex-start;
+  align-items:center;
+}
+h1,h2,h3,h4,h5,h6{
+  margin:0
+}
+
+.greeting{
+  background-color: green;
+  width:60%;
+  margin: 2vh 0vh;
+opacity: 0;
+}
+.lang-cont{
+ 
+  width: 30vw;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 3px;
+
+span{
+  width: 5vw;
+ font-weight: bold;
+  border-radius: 8px;
+  padding: 2px 4px;
+  font-size: 1vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+span.lost::after {
+    content: "💀";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    color: white; 
+}
+}
+
+.HTML{
+  background-color: #e05d0f;
+}
+.Javascript{
+  background-color: #eee911;
+  color: black;
+  font-style: monospace;
+  
+}
+.CSS{
+  background-color: #347ef1;
+}
+.React{
+  background-color: #2ecfe6;
+  
+}
+.Typescript{
+  background-color: #2584c0;
+}
+.Assembly{
+  background-color: #284693;
+}
+.Ruby{
+  background-color: #c92728;
+}
+.NodeJs{
+  background-color: #53872e;
+}
+.Python{
+  background-color: #fbd441;
+  color: black;
+  font-style: monospace;
+}
+
+.input-cont{
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  input{
+    background-color: #2c2c2c;
+    height: 31px;
+    width: 33px;
+    border-bottom: 2px solid white;
+    outline: none;
+    border-radius: 5px;
+  padding: 2px 4px;
+  text-align: center;
+  }
+}
+
+.alpha-cont{
+
+  margin-top:8vh;
+  width:40vw;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-wrap: wrap;
+   gap: 4px 4px;
+   
+}
+
+.alphabet{
+  padding: 4px;
+  width: 3vw;
+  height: 4vh;
+  background-color: #fcb02d;
+  border-radius: 6px;
+color: black;
+font-weight: bold;
+text-align: center;
+}
