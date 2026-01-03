@@ -8,10 +8,14 @@ function App() {
         <h1>Assembly: Endgame</h1>
         <h3>Guess the ward in under 8 attempts to :keep the</h3>
         <h3>programming world safe from Assembly!!</h3>
-        <div className="greeting">
+        <div className="greeting2">
           <h1>You Win!!</h1>
           <h2>Well done 🎉!!</h2>
         </div>
+        {/* <div className="greeting1">
+          <h1>Game over!!</h1>
+          <h2>You lose!! Better start learning Assembly 🤬</h2>
+        </div> */}
         <div className="lang-cont">
           <span className='Javascript'>Javascript</span>
           <span className='Typescript'>Typescript</span>
@@ -60,6 +64,9 @@ function App() {
             <div class="alphabet">Y</div>
             <div class="alphabet">Z</div>
           </div>
+        </div>
+        <div className="new-game">
+          <h1>New Game</h1>
         </div>
       </div>
 

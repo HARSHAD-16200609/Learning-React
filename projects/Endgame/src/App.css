@@ -24,7 +24,13 @@ h1,h2,h3,h4,h5,h6{
   margin:0
 }
 
-.greeting{
+.greeting1{
+  background-color: red;
+  width:60%;
+  margin: 2vh 0vh;
+opacity: 0;
+}
+.greeting2{
   background-color: green;
   width:60%;
   margin: 2vh 0vh;
@@ -139,4 +145,15 @@ span.lost::after {
 color: black;
 font-weight: bold;
 text-align: center;
+}
+
+.new-game{
+  h1{
+    background-color: #14acdb;
+    width:20vw;
+    padding: 2px 4px;
+    margin: 2vh 0vh;
+opacity: 0;
+border-radius: 8px;
+  }
 }
