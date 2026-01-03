@@ -28,13 +28,19 @@ h1,h2,h3,h4,h5,h6{
   background-color: red;
   width:60%;
   margin: 2vh 0vh;
-opacity: 0;
+opacity: 1;
+}
+.greeting{
+  background-color: red;
+  width:60%;
+  margin: 2vh 0vh;
+
 }
 .greeting2{
   background-color: green;
   width:60%;
   margin: 2vh 0vh;
-opacity: 0;
+
 }
 .lang-cont{
  
@@ -47,7 +53,7 @@ opacity: 0;
   gap: 3px;
 
 span{
-  width: 5vw;
+  width: 10vh;
  font-weight: bold;
   border-radius: 8px;
   padding: 2px 4px;
@@ -106,13 +112,13 @@ span.lost::after {
   font-style: monospace;
 }
 
-.input-cont{
+.span-cont{
   margin-top: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 4px;
-  input{
+  span{
     background-color: #2c2c2c;
     height: 31px;
     width: 33px;
@@ -121,7 +127,9 @@ span.lost::after {
     border-radius: 5px;
   padding: 2px 4px;
   text-align: center;
+  
   }
+ 
 }
 
 .alpha-cont{
@@ -132,7 +140,7 @@ span.lost::after {
    justify-content: center;
    align-items: center;
    flex-wrap: wrap;
-   gap: 4px 4px;
+   gap: 4px 6px;
    
 }
 
@@ -145,8 +153,12 @@ span.lost::after {
 color: black;
 font-weight: bold;
 text-align: center;
+cursor: pointer;
+border: 2px solid transparent;
 }
-
+.alphabet:hover{
+  border:2px solid rgb(214, 158, 214);
+}
 .new-game{
   h1{
     background-color: #14acdb;
@@ -156,4 +168,12 @@ text-align: center;
 opacity: 0;
 border-radius: 8px;
   }
+}
+
+.alphabet.wrong{
+  background-color: red;
+}
+
+.alphabet.correct{
+  background-color: green;
 }
