@@ -14,7 +14,7 @@ body ,html{
     height: 100%;
     width: 100%;
     background-color: #0f0f0f; /* Premium dark background */
-    overflow: hidden;
+    
     font-family: 'pricedown', sans-serif;
 }
 .logo{
@@ -26,6 +26,9 @@ body ,html{
     margin-bottom: 2em;
 }
 
-.text:nth-child(1){
-    margin-left:-4em;
+.not{
+    margin-bottom: 1em;
 }
+    .download{
+        margin-top: 1em;
+    }
