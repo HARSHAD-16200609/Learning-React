@@ -1,1 +1,31 @@
 @import "tailwindcss";
+/* Reset and Base Styles */
+@font-face {
+    font-family: 'pricedown';
+    src: url('./assets/pricedown.otf') format('opentype');
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body ,html{
+    height: 100%;
+    width: 100%;
+    background-color: #0f0f0f; /* Premium dark background */
+    overflow: hidden;
+    font-family: 'pricedown', sans-serif;
+}
+.logo{
+    margin-top: 2em;
+  margin-left:4em;
+}
+
+.icon-cont{
+    margin-bottom: 2em;
+}
+
+.text:nth-child(1){
+    margin-left:-4em;
+}
