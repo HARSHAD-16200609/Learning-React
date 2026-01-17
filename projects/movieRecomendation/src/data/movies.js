@@ -30,3 +30,27 @@ export const getMovie = async () => {
     }));
 
 }
+
+
+export const searchedMovies = async(movieName)=>{
+    const res = await axios.get(`https://api.themoviedb.org/3/search/movie`,
+        {
+            params: {
+                api_key:   `${import.meta.env.VITE_API_KEY}`,
+                sort_by: "popularity.desc",
+                with_original_language: "en",
+                region: "US",
+                query:movieName
+            }
+        })
+
+    const movies = res.data.results;
+
+    return movies.map(movie => ({
+        title: movie.title,
+        releaseDate: movie.release_date,
+        posterLink: movie.poster_path
+            ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+            : null
+    }));
+}

@@ -1,15 +1,14 @@
 import "./App.css";
 import MovieCard from "./components/movieCard.jsx";
-import {getMovie} from "./data/movies.js";
+import {getMovie,searchedMovies} from "./data/movies.js";
 import {useEffect, useState} from "react";
+
 
 
 
 function App() {
     const [movies,setMovies] = useState([]);
-    
-
-
+    const [input,setInput] = useState("");
 
 useEffect(()=>{
     const fetchMovies = async () => {
@@ -20,15 +19,16 @@ useEffect(()=>{
             console.error("Failed to fetch movies:", err);
         }
     };
-
     fetchMovies();
 },[])
 
 
 
+
+
   return (
     <>
-      <div className="main-cont bg-[#303030] h-screen overflow-scroll">
+      <div className="main-cont bg-[#303030] h-screen overflow-auto">
         <nav className="navbar flex justify-between p-4 bg-black">
           <div className="navl text-[#736FCE]">
             {" "}
@@ -45,8 +45,15 @@ useEffect(()=>{
             type="text"
             placeholder="Search your movie here..."
             className="searchbar text-white bg-[#3F3F3F] p-4 w-[70%] rounded-[10px] outline-0"
+            onChange={(e)=>{
+                setInput(e.target.value)
+            }}
           />
-          <button className="searchbtn text-white bg-red-700 w-[25%] rounded-[10px] shadow-[0_35px_35px_rgba(0,0,0,0.25)] ">
+          <button className="searchbtn text-white bg-red-700 w-[25%] rounded-[10px] shadow-[0_35px_35px_rgba(0,0,0,0.25)] "
+onClick={async()=>{const searchMovie=await searchedMovies(input)
+    setMovies(searchMovie)
+ }}
+          >
             Search
           </button>
         </div>

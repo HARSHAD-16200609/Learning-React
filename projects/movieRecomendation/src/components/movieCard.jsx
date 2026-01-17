@@ -1,7 +1,7 @@
 import React from 'react'
 import {getMovie} from "../data/movies.js"
 
-getMovie();
+
 
 function movieCard({imgPath,relDate,title}) {
   return (
