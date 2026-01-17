@@ -1,8 +1,31 @@
-import { useState } from "react";
 import "./App.css";
 import MovieCard from "./components/movieCard.jsx";
-import {movies} from "./data/movies.js"
+import {getMovie} from "./data/movies.js";
+import {useEffect, useState} from "react";
+
+
+
 function App() {
+    const [movies,setMovies] = useState([]);
+    
+
+
+
+useEffect(()=>{
+    const fetchMovies = async () => {
+        try {
+            const newMovies = await getMovie();
+            setMovies(newMovies); // no need for prev unless paginating
+        } catch (err) {
+            console.error("Failed to fetch movies:", err);
+        }
+    };
+
+    fetchMovies();
+},[])
+
+
+
   return (
     <>
       <div className="main-cont bg-[#303030] h-screen overflow-scroll">
@@ -23,7 +46,7 @@ function App() {
             placeholder="Search your movie here..."
             className="searchbar text-white bg-[#3F3F3F] p-4 w-[70%] rounded-[10px] outline-0"
           />
-          <button className="searchbtn text-white bg-red-700 w-[25%] rounded-[10px] shadow-[0_35px_35px_rgba(0,0,0,0.25)]">
+          <button className="searchbtn text-white bg-red-700 w-[25%] rounded-[10px] shadow-[0_35px_35px_rgba(0,0,0,0.25)] ">
             Search
           </button>
         </div>
