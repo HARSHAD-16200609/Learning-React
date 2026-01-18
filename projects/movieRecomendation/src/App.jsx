@@ -1,7 +1,11 @@
 import "./App.css";
 import MovieCard from "./components/movieCard.jsx";
 import {getMovie,searchedMovies} from "./data/movies.js";
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
+import Favourites from "./components/Favourites.jsx";
+import Navbar from "./components/Navbar.jsx";
+import {Route,Routes} from "react-router";
+import Home from "./pages/Home.jsx";
 
 
 
@@ -9,6 +13,7 @@ import {useEffect, useState} from "react";
 function App() {
     const [movies,setMovies] = useState([]);
     const [input,setInput] = useState("");
+    const [favourites,setFavourites] = useState([]);
 
 useEffect(()=>{
     const fetchMovies = async () => {
@@ -23,47 +28,37 @@ useEffect(()=>{
 },[])
 
 
+async function searchMovies (){
+const searchMovie=await searchedMovies(input)
+    setMovies(searchMovie)
+}
 
+ function setFavMovies (movie){
+
+     setFavourites((prev=>[...prev,movie]))
+
+
+}
 
 
   return (
     <>
-      <div className="main-cont bg-[#303030] h-screen overflow-auto">
-        <nav className="navbar flex justify-between p-4 bg-black">
-          <div className="navl text-[#736FCE]">
-            {" "}
-            <h5>Movie App</h5>
-          </div>
-
-          <div className="navr flex justify-between w-40 text-[#736FCE]">
-            <h5>Home</h5>
-            <h5>Favourites</h5>
-          </div>
-        </nav>
-        <div className="search flex justify-between w-[30%]  m-auto mt-10 p-0">
-          <input
-            type="text"
-            placeholder="Search your movie here..."
-            className="searchbar text-white bg-[#3F3F3F] p-4 w-[70%] rounded-[10px] outline-0"
-            onChange={(e)=>{
-                setInput(e.target.value)
-            }}
-          />
-          <button className="searchbtn text-white bg-red-700 w-[25%] rounded-[10px] shadow-[0_35px_35px_rgba(0,0,0,0.25)] "
-onClick={async()=>{const searchMovie=await searchedMovies(input)
-    setMovies(searchMovie)
- }}
-          >
-            Search
-          </button>
-        </div>
-
-        <div className="movie-card-cont  w-[80%]   m-auto mt-4 p-4 grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-4 ">
-          {movies.map((movie,index) => (
-            <MovieCard key={index} title={movie.title} relDate={movie.releaseDate.split('-')[0]} imgPath={movie.posterLink} />
-          ))}
-        </div>
-      </div>
+        <Routes>
+        <Route path="/favourites" element={<Favourites  Favmovies={favourites} />} />
+            <Route path="/" element={ <Home searchMovies={searchMovies} setInput={setInput} navbar={<Navbar />}>
+                {movies.map((movie) => (
+                    <MovieCard
+                        key={movie.id}
+                        title={movie.title}
+                        relDate={movie.releaseDate.split("-")[0]}
+                        imgPath={movie.posterLink}
+                        onFav={setFavMovies}
+                        heartDisplay={true}
+                    />
+                ))}
+            </Home>}></Route>
+    </Routes>
+        
     </>
   );
 }

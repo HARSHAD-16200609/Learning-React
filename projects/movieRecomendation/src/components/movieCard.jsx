@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 
 
 
-function MovieCard({ imgPath, relDate, title, onFav }) {
+function MovieCard({ imgPath, relDate, title, onFav,heartDisplay }) {
     const [liked ,setLiked] = useState(false)
 
     return (
@@ -17,7 +17,10 @@ function MovieCard({ imgPath, relDate, title, onFav }) {
 
             <svg
                 className={`
-  absolute top-3 right-3 w-6 h-6 cursor-pointer transition
+                ${heartDisplay ? 
+                    " absolute top-3 right-3 w-6 h-6 cursor-pointer transition " :
+                    " absolute top-3 right-3 w-6 h-6 cursor-pointer transition hidden"}
+ 
   ${liked
                     ? "fill-red-700 stroke-red-700 scale-[1.2]"
                     : "stroke-white fill-none hover:fill-red-700 hover:stroke-red-700 hover:scale-[1.2]"
@@ -32,9 +35,10 @@ function MovieCard({ imgPath, relDate, title, onFav }) {
                     setLiked(!liked)
                     if(!liked) {
                         onFav({
-                            imgPath,
-                            relDate,
-                            title
+
+                            posterLink:imgPath,
+                            releaseDate:relDate,
+                            title:title
                         })
                     }
                 }}
