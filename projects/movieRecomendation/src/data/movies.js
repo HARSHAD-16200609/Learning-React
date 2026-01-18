@@ -22,6 +22,7 @@ export const getMovie = async () => {
      const movies = res.data.results;
 
     return movies.map(movie => ({
+        id:movie.id,
         title: movie.title,
         releaseDate: movie.release_date,
         posterLink: movie.poster_path
