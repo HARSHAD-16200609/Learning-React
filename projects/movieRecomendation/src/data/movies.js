@@ -55,3 +55,43 @@ export const searchedMovies = async(movieName)=>{
             : null
     }));
 }
+
+export const hoveredMovie = async(id)=> {
+    const res = await axios.get(
+        `https://api.themoviedb.org/3/movie/${id}/videos`,
+        {
+            params: {
+                api_key: import.meta.env.VITE_API_KEY,
+            },
+        }
+    );
+
+    const videos = res.data.results;
+    return `https://www.youtube.com/embed/${videos[0].key}`;
+}
+
+export const hoveredMovInfo = async (id) => {
+    const res = await axios.get(
+        `https://api.themoviedb.org/3/movie/${id}`,
+        {
+            params: {
+                api_key: import.meta.env.VITE_API_KEY,
+            },
+        }
+    );
+
+    
+    const movieData = res.data;
+    
+    console.log("Overview:", movieData.overview);
+    console.log("Popularity:", movieData.popularity);
+    console.log("Title:", movieData.title);
+    
+    return {
+        title: movieData.title,
+        overview: movieData.overview,
+        popularity: movieData.popularity,
+        rating:( movieData.vote_average).toFixed(1),
+
+    };
+}
