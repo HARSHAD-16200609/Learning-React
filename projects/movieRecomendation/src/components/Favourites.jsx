@@ -15,7 +15,7 @@ function Favourites({Favmovies}) {
 
               <div className="movie-card-cont  w-[80%]   m-auto mt-4 p-4 grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-4 ">
                   {Favmovies.map((movie) => (
-                      <MovieCard key={movie.id} title={movie.title} relDate={movie.releaseDate.split('-')[0]} imgPath={movie.posterLink} heartDisplay={false}/>
+                      <MovieCard key={movie.id} id={movie.id} title={movie.title} relDate={movie.releaseDate.split('-')[0]} imgPath={movie.posterLink} heartDisplay={false}/>
                   ))}
               </div>
           </div>

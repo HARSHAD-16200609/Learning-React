@@ -1,6 +1,9 @@
 import React from 'react'
 import forward from "../assets/next-forward-arrow-arrows-direction-navigation-right-svgrepo-com.svg"
-import back from "../../public/next-forward-arrow-arrows-direction-navigation-right-svgrepo-com.svg"
+
+
+
+
 function Home({children,navbar,searchMovies ,setInput,loadMore}) {
   return (
       <div className="main-cont bg-[#303030] h-screen overflow-auto">

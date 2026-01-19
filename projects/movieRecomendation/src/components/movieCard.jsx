@@ -1,21 +1,26 @@
 import React, { useState, useEffect } from 'react'
+import { hoveredMovie } from "../data/movies.js";
 
-
+import MovieDetails from "./MovieDetails.jsx";
 
 function MovieCard({ imgPath, relDate, title, onFav, heartDisplay, id, deleteFav, isLiked }) {
     const [liked, setLiked] = useState(isLiked || false)
-
+    const [hoveredMovId, sethoveredId] = useState(null)
     useEffect(() => {
         setLiked(isLiked || false);
     }, [isLiked]);
 
     return (
-        <div className="movie-cont bg-[#262626] rounded-[10px] p-0 relative">
+        <div
+            className="movie-cont bg-[#262626] rounded-[10px] p-0 relative"
+            onMouseLeave={() => sethoveredId(null)}
+        >
 
             <img
                 src={imgPath}
                 className="poster object-cover h-[80%] w-full rounded-[10px]"
                 alt={title}
+
             />
 
 
@@ -59,12 +64,18 @@ function MovieCard({ imgPath, relDate, title, onFav, heartDisplay, id, deleteFav
                 />
             </svg>
 
-            <div className="info p-4">
-                <h5 className="text-white">{title}</h5>
+            <div className="info p-4" onMouseEnter={() => {
+                sethoveredId(id)  
+            }}>
+                <h5 className="text-white" >{title}</h5>
                 <h6 className="text-[#717171]">{relDate}</h6>
             </div>
 
+            {(hoveredMovId) && <MovieDetails movid={hoveredMovId} />}
+
+
         </div>
+
     );
 }
 

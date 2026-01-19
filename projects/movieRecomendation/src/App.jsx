@@ -6,6 +6,7 @@ import Favourites from "./components/Favourites.jsx";
 import Navbar from "./components/Navbar.jsx";
 import { Route, Routes } from "react-router";
 import Home from "./pages/Home.jsx";
+import MovieDetails from "./components/MovieDetails.jsx";
 
 
 
@@ -21,7 +22,7 @@ function App() {
         const fetchMovies = async () => {
             try {
                 const newMovies = await getMovie();
-                setMovies(newMovies); // no need for prev unless paginating
+                setMovies(newMovies);
             } catch (err) {
                 console.error("Failed to fetch movies:", err);
             }
@@ -29,10 +30,10 @@ function App() {
         fetchMovies();
     }, [])
 
-    const loadMoreMovies = async()=>{
+    const loadMoreMovies = async () => {
         try {
             const newMovies = await getMovie();
-            setMovies((prev)=>[...prev,...newMovies]); // no need for prev unless paginating
+            setMovies((prev) => [...prev, ...newMovies]);
         } catch (err) {
             console.error("Failed to fetch movies:", err);
         }
@@ -53,11 +54,13 @@ function App() {
         setFavourites((prev) => prev.filter(item => item.id !== id))
     }
 
+
+
     return (
         <>
             <Routes>
                 <Route path="/favourites" element={<Favourites Favmovies={favourites} />} />
-                <Route path="/" element={<Home searchMovies={searchMovies} setInput={setInput} loadMore={loadMoreMovies} navbar={<Navbar /> }>
+                <Route path="/" element={<Home searchMovies={searchMovies} setInput={setInput} loadMore={loadMoreMovies} navbar={<Navbar />}>
                     {movies.map((movie) => (
                         <MovieCard
                             key={movie.id}

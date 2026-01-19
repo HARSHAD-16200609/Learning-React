@@ -48,6 +48,7 @@ export const searchedMovies = async(movieName)=>{
     const movies = res.data.results;
 
     return movies.map(movie => ({
+        id: movie.id,  
         title: movie.title,
         releaseDate: movie.release_date,
         posterLink: movie.poster_path
@@ -80,7 +81,7 @@ export const hoveredMovInfo = async (id) => {
         }
     );
 
-    
+
     const movieData = res.data;
     
     console.log("Overview:", movieData.overview);
@@ -89,7 +90,7 @@ export const hoveredMovInfo = async (id) => {
     
     return {
         title: movieData.title,
-        overview: movieData.overview,
+        overview: (movieData.overview),
         popularity: movieData.popularity,
         rating:( movieData.vote_average).toFixed(1),
 
