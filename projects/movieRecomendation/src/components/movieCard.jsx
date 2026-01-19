@@ -1,9 +1,13 @@
-import React, {useState} from 'react'
+import React, { useState, useEffect } from 'react'
 
 
 
-function MovieCard({ imgPath, relDate, title, onFav,heartDisplay }) {
-    const [liked ,setLiked] = useState(false)
+function MovieCard({ imgPath, relDate, title, onFav, heartDisplay, id, deleteFav, isLiked }) {
+    const [liked, setLiked] = useState(isLiked || false)
+
+    useEffect(() => {
+        setLiked(isLiked || false);
+    }, [isLiked]);
 
     return (
         <div className="movie-cont bg-[#262626] rounded-[10px] p-0 relative">
@@ -17,29 +21,32 @@ function MovieCard({ imgPath, relDate, title, onFav,heartDisplay }) {
 
             <svg
                 className={`
-                ${heartDisplay ? 
-                    " absolute top-3 right-3 w-6 h-6 cursor-pointer transition " :
-                    " absolute top-3 right-3 w-6 h-6 cursor-pointer transition hidden"}
+                ${heartDisplay ?
+                        " absolute top-3 right-3 w-6 h-6 cursor-pointer transition " :
+                        " absolute top-3 right-3 w-6 h-6 cursor-pointer transition hidden"}
  
   ${liked
-                    ? "fill-red-700 stroke-red-700 scale-[1.2]"
-                    : "stroke-white fill-none hover:fill-red-700 hover:stroke-red-700 hover:scale-[1.2]"
-                }
+                        ? "fill-red-700 stroke-red-700 scale-[1.2]"
+                        : "stroke-white fill-none hover:fill-red-700 hover:stroke-red-700 hover:scale-[1.2]"
+                    }
 `}
                 width="24"
                 height="24"
                 viewBox="0 0 24 24"
                 fill="none"
 
-                onClick={()=>{
+                onClick={() => {
                     setLiked(!liked)
-                    if(!liked) {
+                    if (!liked) {
                         onFav({
-
-                            posterLink:imgPath,
-                            releaseDate:relDate,
-                            title:title
+                            id,
+                            posterLink: imgPath,
+                            releaseDate: relDate,
+                            title: title
                         })
+                    }
+                    else {
+                        deleteFav(id);
                     }
                 }}
 
