@@ -72,6 +72,7 @@ export const hoveredMovie = async(id)=> {
 }
 
 export const hoveredMovInfo = async (id) => {
+
     const res = await axios.get(
         `https://api.themoviedb.org/3/movie/${id}`,
         {
@@ -83,16 +84,16 @@ export const hoveredMovInfo = async (id) => {
 
 
     const movieData = res.data;
-    
+
     console.log("Overview:", movieData.overview);
     console.log("Popularity:", movieData.popularity);
     console.log("Title:", movieData.title);
-    
+
     return {
         title: movieData.title,
         overview: (movieData.overview),
         popularity: movieData.popularity,
-        rating:( movieData.vote_average).toFixed(1),
+        rating:`${(movieData.vote_average).toFixed(1)}/10`,
 
     };
 }

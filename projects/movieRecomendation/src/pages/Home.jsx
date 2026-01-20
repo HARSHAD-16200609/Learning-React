@@ -31,7 +31,7 @@ function Home({children,navbar,searchMovies ,setInput,loadMore}) {
               </button>
           </div>
 
-          <div className="movie-card-cont  m-auto mt-4 p-4 grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-4">
+          <div className="movie-card-cont w-[80%]  m-auto mt-4 p-4 grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-4">
               {children}
           </div>
           <div className="pagination m-auto w-40 flex gap-2.5 items-center mb-6">
