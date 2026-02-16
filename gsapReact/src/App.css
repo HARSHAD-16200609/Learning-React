@@ -1,18 +1,9 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-
-.box{
-  position:absolute;
-  top: 50%;
-  left: 50%;
-  margin-top: -100px;  /* Half of height */
-  margin-left: -100px; /* Half of width */
-  background-color: red;
-  height: 200px;
-  width: 200px;
+.cursor-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
 }

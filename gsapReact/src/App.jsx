@@ -6,21 +6,32 @@ import './App.css'
 gsap.registerPlugin(useGSAP)
 
 function App() {
-  const boxRef = useRef()
+  const imageRef = useRef()
 
   useGSAP(() => {
-    gsap.to(boxRef.current, {
-      x: 200,
-      repeat: -1,
-      duration: 1,
-      yoyo: true,
-      ease: "power1.inOut"
-    })
+    const xTo = gsap.quickTo(imageRef.current, "x", { duration: 0.3 })
+    const yTo = gsap.quickTo(imageRef.current, "y", { duration: 0.3 })
+
+    const handleMouseMove = (e) => {
+      xTo(e.clientX)
+      yTo(e.clientY)
+    }
+
+    window.addEventListener('mousemove', handleMouseMove)
+
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove)
+    }
   })
 
   return (
     <>
-      <div ref={boxRef} className="box"></div>
+      <img
+        ref={imageRef}
+        src="/images.jpeg"
+        alt="Cursor follower"
+        className="cursor-image"
+      />
     </>
   )
 }
